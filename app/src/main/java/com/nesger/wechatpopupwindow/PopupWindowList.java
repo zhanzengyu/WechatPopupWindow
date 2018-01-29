@@ -137,21 +137,23 @@ public class PopupWindowList {
         Rect location = locateView(mAnchorView);
         if (location != null) {
             int x;
+            //view中心点X坐标
             int xMiddle = location.left + mAnchorView.getWidth() / 2;
             if (xMiddle > mDeviceWidth / 2) {
                 //在右边
-                x = location.left + mAnchorView.getWidth() / 2 - mPopupWindowWidth;
+                x = xMiddle - mPopupWindowWidth;
             } else {
-                x = location.left + mAnchorView.getWidth() / 2;
+                x = xMiddle;
             }
             int y;
+            //view中心点Y坐标
             int yMiddle = location.top + mAnchorView.getHeight() / 2;
             if (yMiddle > mDeviceHeight / 2) {
                 //在下方
-                y = location.top - mPopupWindowHeight + mAnchorView.getHeight() / 2;
+                y = yMiddle - mPopupWindowHeight;
             } else {
                 //在上方
-                y = location.top + mAnchorView.getHeight() / 2;
+                y = yMiddle;
             }
             mPopupWindow.showAtLocation(mAnchorView, Gravity.NO_GRAVITY, x, y);
         }
