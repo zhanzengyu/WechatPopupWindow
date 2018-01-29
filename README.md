@@ -41,6 +41,9 @@ private void showPopWindows(View view){
 - setItemData() set the listview adapter data.
 - setModal() means whether make popwindow focus.
 - setOnItemClickListener() set item click listener for popwindow.
+- setPopupWindowWidth() set PopupWindow width.
+- setPopupWindowHeight() set PopupWindow height.
+- setPopAnimStyle() set PopupWindow anim style.
 
 
 ## EXTRA
