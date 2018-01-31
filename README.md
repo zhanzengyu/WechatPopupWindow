@@ -49,5 +49,5 @@ private void showPopWindows(View view){
 ## EXTRA
 If you don't like the simple listview style, you can customize the [PopupWindowList.java](https://github.com/nesger/WechatPopupWindow/blob/master/app/src/main/java/com/nesger/wechatpopupwindow/PopupWindowList.java).
 
-Any problem you can create an issue for me.
+Any problem you can create issue for me.
 
