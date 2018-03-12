@@ -98,7 +98,12 @@ public class PopupWindowList {
      */
     public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener clickListener) {
         mItemClickListener = clickListener;
+        if (mPopView != null) {
+            mPopView.setOnItemClickListener(mItemClickListener);
+        }
     }
+
+    private ListView mPopView;
 
     public void show() {
         if (mAnchorView == null) {
@@ -107,25 +112,27 @@ public class PopupWindowList {
         if (mItemData == null) {
             throw new IllegalArgumentException("please fill ListView Data");
         }
-        ListView popView = new ListView(mContext);
-        popView.setBackgroundColor(ContextCompat.getColor(mContext, android.R.color.white));
-        popView.setVerticalScrollBarEnabled(false);
-        popView.setDivider(null);
-        popView.setAdapter(new ArrayAdapter<>(mContext,
+        mPopView = new ListView(mContext);
+        mPopView.setBackgroundColor(ContextCompat.getColor(mContext, android.R.color.white));
+        mPopView.setVerticalScrollBarEnabled(false);
+        mPopView.setDivider(null);
+        mPopView.setAdapter(new ArrayAdapter<>(mContext,
                 android.R.layout.simple_list_item_1, mItemData));
-        popView.setOnItemClickListener(mItemClickListener);
-        popView.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+        if (mItemClickListener != null) {
+            mPopView.setOnItemClickListener(mItemClickListener);
+        }
+        mPopView.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
                 View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
         if (mPopupWindowWidth == 0) {
             mPopupWindowWidth = mDeviceWidth / 3;
         }
         if (mPopupWindowHeight == 0) {
-            mPopupWindowHeight = mItemData.size() * popView.getMeasuredHeight();
+            mPopupWindowHeight = mItemData.size() * mPopView.getMeasuredHeight();
             if (mPopupWindowHeight > mDeviceHeight / 2) {
                 mPopupWindowHeight = mDeviceHeight / 2;
             }
         }
-        mPopupWindow = new PopupWindow(popView, mPopupWindowWidth, mPopupWindowHeight);
+        mPopupWindow = new PopupWindow(mPopView, mPopupWindowWidth, mPopupWindowHeight);
         if (mPopAnimStyle != 0) {
             mPopupWindow.setAnimationStyle(mPopAnimStyle);
         }

@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mPopupWindowList.setAnchorView(view);
         mPopupWindowList.setItemData(dataList);
         mPopupWindowList.setModal(true);
+        mPopupWindowList.show();
         mPopupWindowList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 mPopupWindowList.hide();
             }
         });
-        mPopupWindowList.show();
     }
 
 }
