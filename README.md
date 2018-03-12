@@ -22,7 +22,6 @@ private void showPopWindows(View view){
     mPopupWindowList.setAnchorView(view);
     mPopupWindowList.setItemData(dataList);
     mPopupWindowList.setModal(true);
-    mPopupWindowList.show();
     mPopupWindowList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -30,6 +29,7 @@ private void showPopWindows(View view){
             mPopupWindowList.hide();
         }
     });
+    mPopupWindowList.show();
 }
 
 ```
@@ -50,4 +50,3 @@ private void showPopWindows(View view){
 If you don't like the simple listview style, you can customize the [PopupWindowList.java](https://github.com/nesger/WechatPopupWindow/blob/master/app/src/main/java/com/nesger/wechatpopupwindow/PopupWindowList.java).
 
 Any problem you can create issue for me.
-
