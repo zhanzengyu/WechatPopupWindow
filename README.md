@@ -5,7 +5,11 @@
 ![run result](https://github.com/nesger/WechatPopupWindow/blob/master/run_result.gif)
 
 ## Usage
-1. copy [PopupWindowList.java](https://github.com/nesger/WechatPopupWindow/blob/master/app/src/main/java/com/nesger/wechatpopupwindow/PopupWindowList.java) to your project;
+
+1. 
+```
+implementation 'com.zengyu:popupwindowlist:1.0.0'
+```
 2. do as the follow sample example show.
 
 ```java
